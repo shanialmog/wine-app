@@ -15,6 +15,7 @@ class App extends Component {
           type: "Semi sweet red wine",
           vintage: 2017,
           cost: 15,
+          rate: 6,
           complexity: 1,
           finish: 4,
           typicity: 1
@@ -24,6 +25,7 @@ class App extends Component {
           type: "Semi sweet red wine",
           vintage: 2017,
           cost: 15,
+          rate: 6,
           complexity: 4,
           finish: 4,
           typicity: 1
@@ -33,6 +35,7 @@ class App extends Component {
           type: "Semi sweet red wine",
           vintage: 2017,
           cost: 15,
+          rate: 6,
           complexity: 6,
           finish: 4,
           typicity: 1

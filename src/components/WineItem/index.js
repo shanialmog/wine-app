@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import WineItemSlider from "../WineItemSlider"
 import { display } from "@material-ui/system"
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 
 class WineItem extends Component {
   render() {
@@ -22,13 +24,31 @@ class WineItem extends Component {
     return (
       <ExpansionPanel>
         <ExpansionPanelSummary
+          style={{justifyContent:'space-between'}}
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
           <Typography>{name}</Typography>
+          <div>
+            <Typography>{vintage} {type}</Typography>
+          </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails style={{display:'block'}}>
+          <TextField
+          disabled
+          id="standard-disabled"
+          label="vintage"
+          defaultValue={vintage}
+          margin="normal"
+          />
+          <TextField
+          disabled
+          id="standard-disabled"
+          label="type"
+          defaultValue={type}
+          margin="normal"
+          />
           <WineItemSlider title="Complexity" value={complexity}/>
           <WineItemSlider title="Finish" value={finish}/>
           <WineItemSlider title="Typicity" value={typicity}/>
