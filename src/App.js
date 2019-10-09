@@ -31,7 +31,7 @@ class App extends Component {
           typicity: 1
         },        {
           id: 123,
-          name: "Old Ukraine",
+          name: "Old Ukraine sdg fsdfgdfg sdfgsgs",
           type: "Semi sweet red wine",
           vintage: 2017,
           cost: 15,
