@@ -4,8 +4,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import Slider from '@material-ui/core/Slider'
-import Box from '@material-ui/core/Box'
+import WineItemSlider from "../WineItemSlider"
+import { display } from "@material-ui/system"
 
 class WineItem extends Component {
   render() {
@@ -28,21 +28,10 @@ class WineItem extends Component {
         >
           <Typography>{name}</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <div style={{width:'100%'}}>
-            <Box display="flex" flexDirection="row">
-              <Typography style={{width:150}} gutterBottom>
-                Complexity
-              </Typography>
-              <Slider
-                defaultValue={complexity}
-                step={1}
-                disabled={false}
-                max={7}
-                valueLabelDisplay="on"
-              />
-            </Box>
-          </div>
+        <ExpansionPanelDetails style={{display:'block'}}>
+          <WineItemSlider title="Complexity" value={complexity}/>
+          <WineItemSlider title="Finish" value={finish}/>
+          <WineItemSlider title="Typicity" value={typicity}/>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     )
