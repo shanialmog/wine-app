@@ -33,11 +33,11 @@ class WineItem extends Component {
           id="panel1a-header"
         >
           <div style={{display:"flex", justifyContent:"space-between", width:"100%"}}>
-              <Typography>{name}</Typography>
-              <Typography>{vintage}</Typography>
-              <Typography>{type}</Typography>
-              <Typography>${cost}</Typography>
-              <Typography>{rate}</Typography>
+              <Typography variant="subtitle1" noWrap="true" style={{ width: "40%"}}>{name}</Typography>
+              <Typography variant="subtitle1" noWrap="true" style={{ width: "10%" }}>{vintage}</Typography>
+              <Typography variant="subtitle1" noWrap="true" style={{ width: "35%"}}>{type}</Typography>
+              <Typography variant="subtitle1" noWrap="true" style={{ width: "10%" }}>${cost}</Typography>
+              <Typography variant="subtitle1" noWrap="true" style={{ width: "5%"}}>{rate}</Typography>
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails style={{display:'block'}}>
