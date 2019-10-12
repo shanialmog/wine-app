@@ -15,7 +15,7 @@ class WineItemSlider extends Component {
         <Slider
           defaultValue={this.props.value}
           step={1}
-          disabled={true}
+          disabled={this.props.disabled}
           max={7}
           valueLabelDisplay="on"
         />
