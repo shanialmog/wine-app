@@ -13,24 +13,49 @@ import Button from '@material-ui/core/Button';
 
 
 class WineItem extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      edit: false
+      edit: false,
+      id: null,
+      name: this.props.name,
+      type: null,
+      vintage: null,
+      cost: null,
+      rate: null,
+      complexity: null,
+      finish: null,
+      typicity: null
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClickEdit = this.handleClickEdit.bind(this)
+    this.handleClickSave = this.handleClickSave.bind(this)
+    this.handleClickCancel = this.handleClickCancel.bind(this)
   }
 
   handleChange(event) {
-    const {value} = event.target
+    const {name,value} = event.target
+    console.log("name:",name)
+    console.log("value:",value)
     this.setState({
-      event : [value]
-    })
+      [name] : value
+    },() => {console.log(this.state)})
   }
 
   handleClickEdit() {
+    this.setState({
+      edit: true
+    })
+  }
+  
+  handleClickSave() {
+    this.setState({
+      edit: false
+    })
+  }
+  
+  handleClickCancel() {
     this.setState({
       edit: true
     })
@@ -98,7 +123,8 @@ class WineItem extends Component {
                   disabled={!this.state.edit}
                   id="standard-disabled"
                   label="Name"
-                  defaultValue={name}
+                  name="name"
+                  value={this.state.name}
                   margin="normal"
                 />
               </Box>
@@ -108,6 +134,7 @@ class WineItem extends Component {
                   disabled={!this.state.edit}
                   id="standard-disabled"
                   label="Vintage"
+                  name="vintage"
                   defaultValue={vintage}
                   margin="normal"
                 />
@@ -166,10 +193,10 @@ class WineItem extends Component {
         <ExpansionPanelActions>
           {this.state.edit ?
             <div>
-            <Button size="small" color="primary">
+            <Button onClick={this.handleClickSave} size="small" color="primary">
             Save
             </Button>
-            <Button size="small" color="primary">
+            <Button onClick={this.handleClickCancel} size="small" color="primary">
             Cancel
           </Button>
           </div>
