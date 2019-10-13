@@ -13,10 +13,12 @@ class WineItemSlider extends Component {
           {this.props.title}
         </Typography>
         <Slider
-          defaultValue={this.props.value}
+          onChange={this.props.onChange}
+          value={this.props.value}
           step={1}
           disabled={this.props.disabled}
           max={7}
+          name={this.props.name}
           valueLabelDisplay="on"
         />
       </Box>

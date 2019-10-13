@@ -17,15 +17,15 @@ class WineItem extends Component {
     super(props)
     this.state = {
       edit: false,
-      id: null,
+      id: this.props.id,
       name: this.props.name,
-      type: null,
-      vintage: null,
-      cost: null,
-      rate: null,
-      complexity: null,
-      finish: null,
-      typicity: null
+      type: this.props.type,
+      vintage: this.props.vintage,
+      cost: this.props.cost,
+      rate: this.props.rate,
+      complexity: this.props.complexity,
+      finish: this.props.finish,
+      typicity: this.props.typicity
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -117,7 +117,7 @@ class WineItem extends Component {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails style={{display:'block'}}>
           <Box display="flex">
-              <Box width={200} pr={3} pb={4}>
+              <Box width={200} pr={2.5} pb={4}>
                 <TextField
                   onChange={this.handleChange}
                   disabled={!this.state.edit}
@@ -128,44 +128,47 @@ class WineItem extends Component {
                   margin="normal"
                 />
               </Box>
-              <Box width={40} pr={3}>
+              <Box width={50} pr={2.5}>
                 <TextField
                   onChange={this.handleChange}
                   disabled={!this.state.edit}
                   id="standard-disabled"
                   label="Vintage"
                   name="vintage"
-                  defaultValue={vintage}
+                  value={this.state.vintage}
                   margin="normal"
                 />
               </Box>
-              <Box width={200} pr={3}>
+              <Box width={200} pr={2.5}>
                 <TextField
                   onChange={this.handleChange}
                   disabled={!this.state.edit}
                   id="standard-disabled"
                   label="Type"
-                  defaultValue={type}
+                  name="type"
+                  value={this.state.type}
                   margin="normal"
                 />
               </Box>
-              <Box width={90} pr={3}>
+              <Box width={90} pr={2.5}>
                 <TextField
                   onChange={this.handleChange}
                   disabled={!this.state.edit}
                   id="standard-disabled"
                   label="Price (USD)"
-                  defaultValue={cost}
+                  name="cost"
+                  value={this.state.cost}
                   margin="normal"
                 />
               </Box>
-              <Box width={30} pr={3}>
+              <Box width={30} pr={2.5}>
                 <TextField
                   onChange={this.handleChange}
                   disabled={!this.state.edit}
                   id="standard-disabled"
                   label="Rate"
-                  defaultValue={rate}
+                  name="rate"
+                  value={this.state.rate}
                   margin="normal"
                 />
               </Box>
@@ -173,20 +176,23 @@ class WineItem extends Component {
           <WineItemSlider
             onChange={this.handleChange}
             title="Complexity"
+            name="complexity"
             disabled={!this.state.edit}
-            value={complexity}
+            value={this.state.complexity}
           />
           <WineItemSlider
             onChange={this.handleChange}
             title="Finish"
+            name="finish"
             disabled={!this.state.edit}
-            value={finish}
+            value={this.state.finish}
           />
           <WineItemSlider
             onChange={this.handleChange}
             title="Typicity"
+            name="typicity"
             disabled={!this.state.edit}
-            value={typicity}
+            value={this.state.typicity}
           />
         </ExpansionPanelDetails>
         <Divider />
