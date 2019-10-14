@@ -41,9 +41,16 @@ class App extends Component {
           typicity: 1
         }
       ],
-      sortBy: "date"
+      sortBy: "date",
     }
+
+    this.handleClickSave = this.handleClickSave.bind(this)
   }
+
+  handleClickSave(wineItem) {
+    console.log("save",wineItem)
+  }
+
   render() {
     return (
       <div>
@@ -57,7 +64,7 @@ class App extends Component {
           <div>
             {
               this.state.wineList.map(item =>
-                <WineItem {...item}/>
+                <WineItem onSave={this.handleClickSave}{...item}/>
               )
             }
           </div>

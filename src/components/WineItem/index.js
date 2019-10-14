@@ -30,7 +30,6 @@ class WineItem extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleClickEdit = this.handleClickEdit.bind(this)
-    this.handleClickSave = this.handleClickSave.bind(this)
     this.handleClickCancel = this.handleClickCancel.bind(this)
   }
 
@@ -46,12 +45,6 @@ class WineItem extends Component {
   handleClickEdit() {
     this.setState({
       edit: true
-    })
-  }
-  
-  handleClickSave() {
-    this.setState({
-      edit: false
     })
   }
   
@@ -199,7 +192,13 @@ class WineItem extends Component {
         <ExpansionPanelActions>
           {this.state.edit ?
             <div>
-            <Button onClick={this.handleClickSave} size="small" color="primary">
+            <Button 
+              onClick={
+                () => {this.props.onSave(
+                  {...this.state}
+                )}
+              }
+              size="small" color="primary">
             Save
             </Button>
             <Button onClick={this.handleClickCancel} size="small" color="primary">
