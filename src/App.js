@@ -19,8 +19,8 @@ class App extends Component {
           complexity: 1,
           finish: 4,
           typicity: 1
-        },        {
-          id: 123,
+        }, {
+          id: 124,
           name: "Old Moldova",
           type: "Semi sweet red wine",
           vintage: 2017,
@@ -29,8 +29,8 @@ class App extends Component {
           complexity: 4,
           finish: 4,
           typicity: 1
-        },        {
-          id: 123,
+        }, {
+          id: 125,
           name: "Old Ukraine sdg fsdfgdfg sdfgsgs",
           type: "Semi sweet red wine",
           vintage: 2017,
@@ -41,7 +41,7 @@ class App extends Component {
           typicity: 1
         }
       ],
-      sortBy: "date",
+      sortBy: "",
     }
 
     this.handleClickSave = this.handleClickSave.bind(this)
@@ -49,6 +49,22 @@ class App extends Component {
 
   handleClickSave(wineItem) {
     console.log("save",wineItem)
+    const updatedWineList = this.state.wineList.map(
+      item => item.id !== wineItem.id ? item : {
+        name: wineItem.name,
+        type: wineItem.type,
+        vintage: wineItem.vintage,
+        cost: wineItem.cost,
+        rate: wineItem.rate,
+        complexity: wineItem.complexity,
+        finish: wineItem.finish,
+        typicity: wineItem.typicity
+      }
+    )
+    console.log(updatedWineList)
+    this.setState({
+      wineList: updatedWineList
+    })
   }
 
   render() {
