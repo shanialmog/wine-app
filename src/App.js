@@ -61,7 +61,7 @@ class App extends Component {
         typicity: wineItem.typicity
       }
     )
-    console.log(updatedWineList)
+    console.log(wineItem)
     this.setState({
       wineList: updatedWineList
     })

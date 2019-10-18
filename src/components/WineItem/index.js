@@ -192,23 +192,26 @@ class WineItem extends Component {
         <ExpansionPanelActions>
           {this.state.edit ?
             <div>
-            <Button 
-              onClick={
-                () => {this.props.onSave(
-                  {...this.state}
-                )}
-              }
-              size="small" color="primary">
-            Save
-            </Button>
-            <Button onClick={this.handleClickCancel} size="small" color="primary">
-            Cancel
-          </Button>
-          </div>
-          : 
+              <Button
+                onClick={
+                  () => {
+                    this.props.onSave({...this.state})
+                    this.setState({edit: false})
+                  }
+                }
+                size="small" color="primary"
+              >
+                Save
+              </Button>
+              <Button onClick={this.handleClickCancel} size="small" color="primary">
+                Cancel
+              </Button>
+            </div>
+          :
             <Button onClick={this.handleClickEdit} size="small" color="primary">
-            Edit
-          </Button> }
+              Edit
+            </Button>
+          }
         </ExpansionPanelActions>
       </ExpansionPanel>
     )
