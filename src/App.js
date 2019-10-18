@@ -48,7 +48,6 @@ class App extends Component {
   }
 
   handleClickSave(wineItem) {
-    console.log("save",wineItem)
     const updatedWineList = this.state.wineList.map(
       item => item.id !== wineItem.id ? item : {
         name: wineItem.name,
@@ -61,7 +60,6 @@ class App extends Component {
         typicity: wineItem.typicity
       }
     )
-    console.log(wineItem)
     this.setState({
       wineList: updatedWineList
     })

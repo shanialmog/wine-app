@@ -35,11 +35,9 @@ class WineItem extends Component {
 
   handleChange(event) {
     const {name,value} = event.target
-    console.log("name:",name)
-    console.log("value:",value)
     this.setState({
       [name] : value
-    },() => {console.log(this.state)})
+    })
   }
 
   handleClickEdit() {
@@ -50,7 +48,16 @@ class WineItem extends Component {
   
   handleClickCancel() {
     this.setState({
-      edit: true
+      edit: false,
+      id: this.props.id,
+      name: this.props.name,
+      type: this.props.type,
+      vintage: this.props.vintage,
+      cost: this.props.cost,
+      rate: this.props.rate,
+      complexity: this.props.complexity,
+      finish: this.props.finish,
+      typicity: this.props.typicity
     })
   }
 
