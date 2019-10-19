@@ -49,7 +49,7 @@ class WineItem extends Component {
   handleClickCancel() {
     this.setState({
       edit: false,
-      id: this.props.id,
+      id: this.state.id,
       name: this.props.name,
       type: this.props.type,
       vintage: this.props.vintage,

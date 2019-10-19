@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import uuid from "uuid/v4"
 import Button from '@material-ui/core/Button'
 import './App.css'
 import WineItem from './components/WineItem/'
@@ -8,43 +9,11 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      wineList: [
-        {
-          id: 123,
-          name: "Old Tbilisi",
-          type: "Semi sweet red wine",
-          vintage: 2017,
-          cost: 15,
-          rate: 6,
-          complexity: 1,
-          finish: 4,
-          typicity: 1
-        }, {
-          id: 124,
-          name: "Old Moldova",
-          type: "Semi sweet red wine",
-          vintage: 2017,
-          cost: 15,
-          rate: 6,
-          complexity: 4,
-          finish: 4,
-          typicity: 1
-        }, {
-          id: 125,
-          name: "Old Ukraine sdg fsdfgdfg sdfgsgs",
-          type: "Semi sweet red wine",
-          vintage: 2017,
-          cost: 15,
-          rate: 6,
-          complexity: 6,
-          finish: 4,
-          typicity: 1
-        }
-      ],
-      sortBy: "",
+      wineList: []
     }
 
     this.handleClickSave = this.handleClickSave.bind(this)
+    this.handleClickAdd = this.handleClickAdd.bind(this)
   }
 
   handleClickSave(wineItem) {
@@ -65,6 +34,25 @@ class App extends Component {
     })
   }
 
+  handleClickAdd() {
+    this.setState({
+      wineList: [
+        {
+          id: uuid(),
+          name: "Wine name",
+          type: "Wine type",
+          vintage: 2019,
+          cost: 0,
+          rate: 1,
+          complexity: 0,
+          finish: 0,
+          typicity: 0
+        },
+        ...this.state.wineList
+      ]
+    })
+  }
+
   render() {
     return (
       <div>
@@ -72,13 +60,13 @@ class App extends Component {
           <h1>
             My wines
           </h1>
-          <Button variant="contained" color="primary">
+          <Button onClick={this.handleClickAdd} variant="contained" color="primary">
             Add wine
           </Button>
           <div>
             {
               this.state.wineList.map(item =>
-                <WineItem onSave={this.handleClickSave}{...item}/>
+                <WineItem key={item.id} onSave={this.handleClickSave}{...item}/>
               )
             }
           </div>
