@@ -49,7 +49,7 @@ class WineItem extends Component {
   handleClickCancel() {
     this.setState({
       edit: false,
-      id: this.state.id,
+      id: this.props.id,
       name: this.props.name,
       type: this.props.type,
       vintage: this.props.vintage,
@@ -215,9 +215,21 @@ class WineItem extends Component {
               </Button>
             </div>
           :
-            <Button onClick={this.handleClickEdit} size="small" color="primary">
-              Edit
+            <div>
+              <Button onClick={this.handleClickEdit} size="small" color="primary">
+                Edit
+              </Button>
+              <Button
+                color="secondary"
+                onClick={
+                  () => {
+                    this.props.onDelete(this.state.id)
+                  }
+                }
+              >
+                Delete
             </Button>
+          </div>
           }
         </ExpansionPanelActions>
       </ExpansionPanel>

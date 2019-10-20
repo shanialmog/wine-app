@@ -14,11 +14,13 @@ class App extends Component {
 
     this.handleClickSave = this.handleClickSave.bind(this)
     this.handleClickAdd = this.handleClickAdd.bind(this)
+    this.handleClickDelete = this.handleClickDelete.bind(this)
   }
 
   handleClickSave(wineItem) {
     const updatedWineList = this.state.wineList.map(
       item => item.id !== wineItem.id ? item : {
+        id: wineItem.id,
         name: wineItem.name,
         type: wineItem.type,
         vintage: wineItem.vintage,
@@ -53,6 +55,13 @@ class App extends Component {
     })
   }
 
+  handleClickDelete(wineDeleteId){
+    const wineList = this.state.wineList.filter(item => item.id !== wineDeleteId)
+    this.setState({
+      wineList: wineList
+    })
+  }
+
   render() {
     return (
       <div>
@@ -66,7 +75,7 @@ class App extends Component {
           <div>
             {
               this.state.wineList.map(item =>
-                <WineItem key={item.id} onSave={this.handleClickSave}{...item}/>
+                <WineItem key={item.id} onSave={this.handleClickSave}{...item} onDelete={this.handleClickDelete}/>
               )
             }
           </div>
