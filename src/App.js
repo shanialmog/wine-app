@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import uuid from "uuid/v4"
+import localStorage from 'local-storage'
 import Button from '@material-ui/core/Button'
 import './App.css'
 import WineItem from './components/WineItem/'
@@ -34,6 +35,7 @@ class App extends Component {
     this.setState({
       wineList: updatedWineList
     })
+    localStorage.set('wineitem', updatedWineList)
   }
 
   handleClickAdd() {
