@@ -13,9 +13,19 @@ class App extends Component {
       wineList: []
     }
 
+
     this.handleClickSave = this.handleClickSave.bind(this)
     this.handleClickAdd = this.handleClickAdd.bind(this)
     this.handleClickDelete = this.handleClickDelete.bind(this)
+  }
+
+  componentDidMount(){
+    const wineItems = localStorage.get('wineitems')
+    if (wineItems !== null) {
+      this.setState({
+      wineList: wineItems
+      })
+    }
   }
 
   handleClickSave(wineItem) {
@@ -35,7 +45,7 @@ class App extends Component {
     this.setState({
       wineList: updatedWineList
     })
-    localStorage.set('wineitem', updatedWineList)
+    localStorage.set('wineitems', updatedWineList)
   }
 
   handleClickAdd() {
