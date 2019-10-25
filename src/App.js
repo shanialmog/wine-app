@@ -49,22 +49,24 @@ class App extends Component {
   }
 
   handleClickAdd() {
+    const winelist = [
+      {
+        id: uuid(),
+        name: "Wine name",
+        type: "Wine type",
+        vintage: 2019,
+        cost: 0,
+        rate: 1,
+        complexity: 0,
+        finish: 0,
+        typicity: 0
+      },
+      ...this.state.wineList
+    ]
     this.setState({
-      wineList: [
-        {
-          id: uuid(),
-          name: "Wine name",
-          type: "Wine type",
-          vintage: 2019,
-          cost: 0,
-          rate: 1,
-          complexity: 0,
-          finish: 0,
-          typicity: 0
-        },
-        ...this.state.wineList
-      ]
+      wineList: winelist
     })
+    localStorage.set('wineitems', )
   }
 
   handleClickDelete(wineDeleteId){
@@ -72,6 +74,7 @@ class App extends Component {
     this.setState({
       wineList: wineList
     })
+    localStorage.set('wineitems', wineList)
   }
 
   render() {
