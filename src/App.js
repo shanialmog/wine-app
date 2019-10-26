@@ -21,11 +21,12 @@ class App extends Component {
 
   componentDidMount(){
     const wineItems = localStorage.get('wineitems')
-    if (wineItems !== null) {
+    if (wineItems) {
       this.setState({
       wineList: wineItems
       })
     }
+    console.log(wineItems)
   }
 
   handleClickSave(wineItem) {
