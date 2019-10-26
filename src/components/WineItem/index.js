@@ -61,6 +61,14 @@ class WineItem extends Component {
     })
   }
 
+  validityCheck(){
+    const costValid = /^\d+$/.test(this.state.cost) ? true : false
+    const rateValid = /^\d+$/.test(this.state.rate) ? true : false
+    const vintageValid = /^\d+$/.test(this.state.vintage) ? true : false
+    console.log(costValid, rateValid, vintageValid)
+    return (vintageValid && costValid && rateValid ? false : true)
+  }
+
   render() {
     const {
       id,
@@ -209,7 +217,7 @@ class WineItem extends Component {
                 }
                 size="small"
                 color="primary"
-                disabled={/^\d+$/.test(this.state.cost) ? false : true}
+                disabled={this.validityCheck()}
               >
                 Save
               </Button>
