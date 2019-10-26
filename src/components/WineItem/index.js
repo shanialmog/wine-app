@@ -197,7 +197,8 @@ class WineItem extends Component {
         </ExpansionPanelDetails>
         <Divider />
         <ExpansionPanelActions>
-          {this.state.edit ?
+
+        {this.state.edit ?
             <div>
               <Button
                 onClick={
@@ -206,7 +207,9 @@ class WineItem extends Component {
                     this.setState({edit: false})
                   }
                 }
-                size="small" color="primary"
+                size="small"
+                color="primary"
+                disabled={/^\d+$/.test(this.state.cost) ? false : true}
               >
                 Save
               </Button>

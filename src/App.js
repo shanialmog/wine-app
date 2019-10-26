@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount(){
     const wineItems = localStorage.get('wineitems')
-    if (wineItems) {
+    if (wineItems !== null && wineItems !== undefined) {
       this.setState({
       wineList: wineItems
       })
@@ -67,7 +67,7 @@ class App extends Component {
     this.setState({
       wineList: winelist
     })
-    localStorage.set('wineitems', )
+  //  localStorage.set('wineitems', )
   }
 
   handleClickDelete(wineDeleteId){
