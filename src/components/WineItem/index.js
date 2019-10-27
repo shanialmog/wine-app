@@ -61,7 +61,7 @@ class WineItem extends Component {
     })
   }
 
-  validityCheck(){
+  isAllFieldsValid() {
     const costValid = /^\d+$/.test(this.state.cost) ? true : false
     const rateValid = /^\d+$/.test(this.state.rate) ? true : false
     const vintageValid = /^\d+$/.test(this.state.vintage) ? true : false
@@ -217,7 +217,7 @@ class WineItem extends Component {
                 }
                 size="small"
                 color="primary"
-                disabled={this.validityCheck()}
+                disabled={this.isAllFieldsValid()}
               >
                 Save
               </Button>
