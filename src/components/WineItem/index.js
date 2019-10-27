@@ -145,6 +145,7 @@ class WineItem extends Component {
                   name="vintage"
                   value={this.state.vintage}
                   margin="normal"
+                  error={/^\d+$/.test(this.state.vintage) ? false : true}
                 />
               </Box>
               <Box width={200} pr={2.5}>
@@ -167,6 +168,7 @@ class WineItem extends Component {
                   name="cost"
                   value={this.state.cost}
                   margin="normal"
+                  error={/^\d+$/.test(this.state.cost) ? false : true}
                 />
               </Box>
               <Box width={30} pr={2.5}>
@@ -178,6 +180,7 @@ class WineItem extends Component {
                   name="rate"
                   value={this.state.rate}
                   margin="normal"
+                  error={/^\d+$/.test(this.state.rate) ? false : true}
                 />
               </Box>
           </Box>
