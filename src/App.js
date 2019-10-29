@@ -1,5 +1,5 @@
-import React, {Component} from "react"
-import uuid from "uuid/v4"
+import React, { Component } from 'react'
+import uuid from 'uuid/v4'
 import localStorage from 'local-storage'
 import Button from '@material-ui/core/Button'
 import './App.css'
@@ -7,29 +7,28 @@ import WineItem from './components/WineItem/'
 import { Container } from '@material-ui/core'
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       wineList: []
     }
-
 
     this.handleClickSave = this.handleClickSave.bind(this)
     this.handleClickAdd = this.handleClickAdd.bind(this)
     this.handleClickDelete = this.handleClickDelete.bind(this)
   }
 
-  componentDidMount(){
+  componentDidMount () {
     const wineItems = localStorage.get('wineitems')
     if (wineItems !== null && wineItems !== undefined) {
       this.setState({
-      wineList: wineItems
+        wineList: wineItems
       })
     }
     console.log(wineItems)
   }
 
-  handleClickSave(wineItem) {
+  handleClickSave (wineItem) {
     const updatedWineList = this.state.wineList.map(
       item => item.id !== wineItem.id ? item : {
         id: wineItem.id,
@@ -49,12 +48,12 @@ class App extends Component {
     localStorage.set('wineitems', updatedWineList)
   }
 
-  handleClickAdd() {
+  handleClickAdd () {
     const winelist = [
       {
         id: uuid(),
-        name: "Wine name",
-        type: "Wine type",
+        name: 'Wine name',
+        type: 'Wine type',
         vintage: 2019,
         cost: 0,
         rate: 1,
@@ -70,7 +69,7 @@ class App extends Component {
   //  localStorage.set('wineitems', )
   }
 
-  handleClickDelete(wineDeleteId){
+  handleClickDelete (wineDeleteId) {
     const wineList = this.state.wineList.filter(item => item.id !== wineDeleteId)
     this.setState({
       wineList: wineList
@@ -78,20 +77,20 @@ class App extends Component {
     localStorage.set('wineitems', wineList)
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <Container maxWidth="sm">
+        <Container maxWidth='sm'>
           <h1>
             My wines
           </h1>
-          <Button onClick={this.handleClickAdd} variant="contained" color="primary">
+          <Button onClick={this.handleClickAdd} variant='contained' color='primary'>
             Add wine
           </Button>
           <div>
             {
               this.state.wineList.map(item =>
-                <WineItem key={item.id} onSave={this.handleClickSave}{...item} onDelete={this.handleClickDelete}/>
+                <WineItem key={item.id} onSave={this.handleClickSave} {...item} onDelete={this.handleClickDelete} />
               )
             }
           </div>
@@ -100,7 +99,5 @@ class App extends Component {
     )
   }
 }
-
-
 
 export default App
